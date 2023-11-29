@@ -13,8 +13,8 @@ jobs:
       - name: install_apax
         shell: bash
         run: |
-          echo "first" > .npmrc
-          echo "second" >> .npmrc
+          echo "registry=https://registry.simatic-ax.siemens.io/" > .npmrc
+          echo "//registry.simatic-ax.siemens.io/:_authToken: apax.REDACTED" >> .npmrc
           export tempEnv=$(cat .npmrc)
           echo "RENOVATE_NPMRC=$tempEnv" >> $GITHUB_ENV
       - name: Echo env
