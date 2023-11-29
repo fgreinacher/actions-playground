@@ -1,0 +1,28 @@
+name: Renovate
+on:
+  workflow_dispatch:
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        
+      - name: install_apax
+        shell: bash
+        run: |
+          export tempEnv="hello
+          world"
+          echo $tempEnv          
+          echo "RENOVATE_NPMRC=$tempEnv" >> $GITHUB_ENV
+      - name: Echo env
+        shell: bash
+        run: |
+          echo ${{ env.RENOVATE_NPMRC }}
+      - name: Self-hosted Renovate
+        shell: bash
+        run: |
+          echo ${{ env.RENOVATE_NPMRC }}
+        env:
+          RENOVATE_NPMRC: ${{ env.RENOVATE_NPMRC }}
