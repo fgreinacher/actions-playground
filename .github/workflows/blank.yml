@@ -14,10 +14,10 @@ jobs:
         shell: bash
         run: |
           export tempEnv=$(<<EOF
-          This is the first line
-          This is the second line
-          This is the third line
-          EOF)
+            This is the first line
+            This is the second line
+            This is the third line
+            EOF)
           echo $tempEnv          
           echo "RENOVATE_NPMRC=$tempEnv" >> $GITHUB_ENV
       - name: Echo env
