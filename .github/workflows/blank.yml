@@ -13,7 +13,11 @@ jobs:
       - name: install_apax
         shell: bash
         run: |
-          export tempEnv=$(echo "This is the first line\nThis is the second line\nThis is the third line")
+          export tempEnv=$(<<EOF
+          This is the first line
+          This is the second line
+          This is the third line
+          EOF)
           echo $tempEnv          
           echo "RENOVATE_NPMRC=$tempEnv" >> $GITHUB_ENV
       - name: Echo env
