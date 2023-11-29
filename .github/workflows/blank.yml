@@ -1,6 +1,7 @@
 name: Renovate
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   renovate:
@@ -12,8 +13,7 @@ jobs:
       - name: install_apax
         shell: bash
         run: |
-          export tempEnv="hello
-          world"
+          export tempEnv=$(echo "This is the first line\nThis is the second line\nThis is the third line")
           echo $tempEnv          
           echo "RENOVATE_NPMRC=$tempEnv" >> $GITHUB_ENV
       - name: Echo env
